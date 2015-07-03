@@ -7,12 +7,20 @@ export class Declaration {
     }
 
     approve() {
-        this.approvedOn = new Date();
+        this._approvedOn = new Date();
     }
 
     decline(reason) {
-        this.declinedOn = new Date();
+        this._declinedOn = new Date();
         this._reason = reason;
+    }
+
+    get approvedOn() {
+        return this._approvedOn;
+    }
+
+    get declinedOn() {
+        return this._declinedOn;
     }
 
     get reason() {

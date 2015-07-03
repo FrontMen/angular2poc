@@ -1,0 +1,22 @@
+[
+  {
+    "date": "04-mei-2015",
+    "approvedOn": "",
+    "declinedOn": "",
+    "reason": "",
+    "rows": [
+      {
+        "description": "Adobe Photoshop CC",
+        "amount": "12,09",
+        "date": "01-mei-2015",
+        "photo": ""
+      },
+      {
+        "description": "Mobiel abonnement",
+        "amount": "50,00",
+        "date": "01-mei-2015",
+        "photo": ""
+      }
+    ]
+  }
+]

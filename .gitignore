@@ -2,6 +2,7 @@
 logs
 *.log
 .idea
+libs
 
 # Runtime data
 pids

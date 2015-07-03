@@ -1,2 +1,2 @@
 # angular2poc
-Angular2pco
+Angular2poc

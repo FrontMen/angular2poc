@@ -1,12 +1,11 @@
 {
   "name": "angular2poc",
   "version": "0.0.1",
-  "license":"apache-2.0",
-  "decriprion":"Angular 2 poc",
+  "license": "apache-2.0",
+  "decriprion": "Angular 2 poc",
   "dependencies": {
     "angular2": "2.0.0-alpha.29"
   },
   "devDependencies": {
-
   }
 }

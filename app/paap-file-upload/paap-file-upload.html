@@ -13,11 +13,12 @@
     <template>
         <form>
             <label>Name: <input type="text" name="Name" id="name"></label></br>
-            <label>File: <input type="file" name="File" id="file" on-change="{{setFiles}}" accept="image/*"></label>
+            <label>File: <input type="file" name="File" id="file" on-change="setFiles" accept="image/*"></label>
             <p>
                 <paper-button id="submit-button" on-tap="{{upload}}">upload</paper-button>
             </p>
         </form>
+        <img src="{{imgSrc}}">
         <iron-ajax auto id="ajax" url="/file-upload" params='{"alt":"json", "q":"chrome"}' method='post' handle-as="json" on-response="{{response}}" debounce-duration="300"></iron-ajax>
         <!--<core-ajax id="ajax" url="/file-upload" method="POST" handleAs="json" response="{{response}}"></core-ajax>-->
     </template>
@@ -54,18 +55,27 @@
                 console.log('Response from server', this.response);
             },
 
-            setFiles: function (e, detail, sender) {
-                var formData = new FormData();
+            setFiles: function (e) {
+                var files = event.target.files,
+                    file;
 
-                for (var i = 0, f; f = sender.files[i]; ++i) {
-                    formData.append(sender.name, f,
-                            this.$.name.value || f.name);
+                if (files && files.length > 0) {
+                    file = files[0];
                 }
 
-                this.$.ajax.body = formData;
-                // Override default type set by core-ajax.
-                // Allow browser to set the mime multipart content type itself.
-                this.$.ajax.contentType = null;
+                this.imgSrc = window.URL.createObjectURL(file);
+                // var formData = new FormData();
+
+
+                // for (var i = 0, f; f = sender.files[i]; ++i) {
+                //     formData.append(sender.name, f,
+                //             this.$.name.value || f.name);
+                // }
+
+                // this.$.ajax.body = formData;
+                // // Override default type set by core-ajax.
+                // // Allow browser to set the mime multipart content type itself.
+                // this.$.ajax.contentType = null;
             },
 
             upload: function (e, detail, sender) {

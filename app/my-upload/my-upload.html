@@ -1,0 +1,33 @@
+<dom-module id="my-upload">
+    <style>
+        :host {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            h1.paper-font-display1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <template>
+        <h1 class="paper-font-display1"><span>{{headertitle}}</span></h1>
+     </template>
+
+    <script>
+        (function () {
+            Polymer({
+                is: 'my-upload',
+
+                properties: {
+                    headertitle: {
+                        type: String,
+                        value: 'Declaration upload form',
+                        notify: true
+                    }
+                }
+            });
+        })();
+    </script>
+
+</dom-module>

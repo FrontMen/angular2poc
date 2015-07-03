@@ -1,0 +1,40 @@
+<dom-module id="my-list">
+    <style>
+        :host {
+            display: block;
+        }
+    </style>
+
+    <template>
+        <ul>
+            <template is="dom-repeat" items="{{items}}">
+
+                <li><span class="paper-font-body1">{{item}}</span></li>
+            </template>
+        </ul>
+    </template>
+
+    <script>
+        (function () {
+            Polymer({
+                is: 'my-list',
+                properties: {
+                    items: {
+                        type: Array,
+                        notify: true,
+                    }
+                },
+                ready: function () {
+                    this.items = [
+                        'Not much...',
+                        'Poor cash amount in your pocket',
+                        'Need to make a declaration',
+                        'Have plenty of receipts',
+                        'Member of the FrontMen guild'
+                    ];
+                }
+            });
+        })();
+    </script>
+
+</dom-module>

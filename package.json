@@ -1,0 +1,12 @@
+{
+  "name": "angular2poc",
+  "version": "0.0.1",
+  "license":"apache-2.0",
+  "decriprion":"Angular 2 poc",
+  "dependencies": {
+
+  }
+  "devDependencies": {
+
+  }
+}

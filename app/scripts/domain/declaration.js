@@ -2,7 +2,7 @@ import {DeclarationRow} from 'row';
 
 export class Declaration {
     constructor() {
-        this.date = new Date();
+        this._date = new Date();
         this.rows = [];
     }
 
@@ -12,7 +12,15 @@ export class Declaration {
 
     decline(reason) {
         this.declinedOn = new Date();
-        this.reason = reason;
+        this._reason = reason;
+    }
+
+    get reason() {
+        return this._reason;
+    }
+
+    get date() {
+        return this._date;
     }
 
     addRow() {

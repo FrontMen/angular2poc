@@ -2,19 +2,35 @@ export class DeclarationRow {
     constructor() {
     }
 
-    setDate(date) {
-        this.date = date;
+    set date(date) {
+        this._date = date;
     }
 
-    setAmount(amount) {
-        this.amount = amount;
+    get date() {
+        return this._date;
     }
 
-    setPhoto(photo) {
-        this.photo = photo;
+    set amount(amount) {
+        this._amount = amount;
     }
 
-    setDescription(description) {
-        this.description = description;
+    get amount() {
+        return this._amount;
+    }
+
+    set photo(photo) {
+        this._photo = photo;
+    }
+
+    get photo() {
+        return this._photo;
+    }
+
+    set description(description) {
+        this._description = description;
+    }
+
+    get description() {
+        return this._description;
     }
 }

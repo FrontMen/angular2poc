@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Angular 2 POC</title>
+        <title>Declartion app</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -83,15 +83,13 @@
 
                                     <p class="paper-font-subhead">You now have:</p>
                                     <my-list></my-list>
-
-                                    <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
                                 </paper-material>
                                 <paper-material elevation="1">
-                                    <p class="paper-font-body2">This is another card.</p>
+                                    <p class="paper-font-body2">This is another to fill card.</p>
                                 </paper-material>
 
                                 <paper-material elevation="1" class="paper-font-body2">
-                                    <h1 id="license">License</h1>
+                                    <h1 id="license">License of Poorness</h1>
                                 </paper-material>
 
                             </section>
@@ -99,6 +97,7 @@
                             <section data-route="users">
                                 <paper-material elevation="1">
                                     <h2 class="paper-font-display2">Users</h2>
+
                                     <p>This is the users section</p>
                                     <a href="/users/Rob">Rob</a>
                                 </paper-material>
@@ -109,6 +108,7 @@
                                     <h2 class="paper-font-display2">
                                         User:<span>{{params.name}}</span>
                                     </h2>
+
                                     <div>This is <span>{{params.name}}</span>'s section</div>
                                 </paper-material>
                             </section>
@@ -116,6 +116,7 @@
                             <section data-route="contact">
                                 <paper-material elevation="1">
                                     <h2 class="paper-font-display2">Contact</h2>
+
                                     <p>This is the contact section</p>
                                 </paper-material>
                             </section>
@@ -133,21 +134,16 @@
             </paper-drawer-panel>
 
             <!-- Uncomment next block to enable Service Worker support (1/2) -->
-            <!--
+
             <paper-toast id="caching-complete"
                          duration="6000"
                          text="Caching complete! This app will work offline.">
             </paper-toast>
 
-            <platinum-sw-register auto-register
-                                  clients-claim
-                                  skip-waiting
-                                  on-service-worker-installed="displayInstalledToast">
-              <platinum-sw-cache default-cache-strategy="networkFirst"
-                                 precache-file="precache.json">
-              </platinum-sw-cache>
+            <platinum-sw-register auto-register clients-claim skip-waiting on-service-worker-installed="displayInstalledToast">
+                <platinum-sw-cache default-cache-strategy="networkFirst" precache-file="precache.json">
+                </platinum-sw-cache>
             </platinum-sw-register>
-            -->
 
         </template>
 

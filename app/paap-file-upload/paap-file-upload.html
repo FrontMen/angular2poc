@@ -1,0 +1,84 @@
+<dom-module id="paap-file-upload">
+    <!-- Style -->
+    <style>
+        :host {
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    <!--// Style -->
+
+    <!-- Template -->
+    <template>
+        <form>
+            <label>Name: <input type="text" name="Name" id="name"></label></br>
+            <label>File: <input type="file" name="File" id="file" on-change="{{setFiles}}" accept="image/*"></label>
+            <p>
+                <paper-button id="submit-button" on-tap="{{upload}}">upload</paper-button>
+            </p>
+        </form>
+        <iron-ajax auto id="ajax" url="/file-upload" params='{"alt":"json", "q":"chrome"}' method='post' handle-as="json" on-response="{{response}}" debounce-duration="300"></iron-ajax>
+        <!--<core-ajax id="ajax" url="/file-upload" method="POST" handleAs="json" response="{{response}}"></core-ajax>-->
+    </template>
+    <!--// Template -->
+
+    <script>
+        // register a new element called ui-spinner
+        Polymer({
+            is: 'paap-file-upload',
+            properties: {
+
+                onChange: {
+                    type: String,
+                    value: 'false',
+                    //observer: 'setFiles'
+                },
+
+                onResponse: {
+                    type: String,
+                    value: 'false',
+                    //observer: "responseChanged"
+                }
+            },
+
+            observers: [
+                //'setFiles(onChange)',
+                //'responseChanged(onResponse)'
+            ],
+
+            attributeChanged: function (name, type) {
+                /* TODO: Use this position (state of component) for Graylog and / or tagging of unique components
+                 * console.log(this.localName + '#' + this.id + ' attribute ' + name + ' was changed to ' + this.getAttribute(name));
+                 */
+                console.log('Response from server', this.response);
+            },
+
+            setFiles: function (e, detail, sender) {
+                var formData = new FormData();
+
+                for (var i = 0, f; f = sender.files[i]; ++i) {
+                    formData.append(sender.name, f,
+                            this.$.name.value || f.name);
+                }
+
+                this.$.ajax.body = formData;
+                // Override default type set by core-ajax.
+                // Allow browser to set the mime multipart content type itself.
+                this.$.ajax.contentType = null;
+            },
+
+            upload: function (e, detail, sender) {
+                if (!this.$.file.files.length) {
+                    alert('Please include a file');
+                    return;
+                }
+                this.$.ajax.go();
+            },
+            responseChanged: function() {
+                console.log('Response from server', this.response);
+            }
+
+        });
+    </script>
+</dom-module>

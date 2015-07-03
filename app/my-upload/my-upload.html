@@ -11,8 +11,8 @@
         }
 
         #submit-button {
-            background: darkorange;
-            color: black;
+            background: #3F51B5;
+            color: #fff;
         }
 
         #submit-button::shadow paper-ripple {
@@ -22,14 +22,20 @@
     <template>
         <h1 class="paper-font-display1"><span>{{headertitle}}</span></h1>
 
-        <paper-input error-message="Invalid input!" label="Euro"></paper-input>
+        <paper-input error-message="Invalid input!" label="€"></paper-input>
 
         <paper-input error-message="Invalid input!" label="Date"></paper-input>
-        
-        <paper-input error-message="Invalid input!" label="Description"></paper-input>
+
+
+        <paper-textarea label="Description"></paper-textarea>
+
+        <paap-file-upload></paap-file-upload>
+
+        <paper-button id="reset-button">
+            Cancel
+        </paper-button>
 
         <paper-button id="submit-button">
-            <iron-icon icon="favorite"></iron-icon>
             Sumbit
         </paper-button>
     </template>
